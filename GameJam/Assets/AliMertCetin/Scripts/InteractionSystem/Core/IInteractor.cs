@@ -2,7 +2,6 @@
 {
     public interface IInteractor
     {
-        InteractorSettings GetInteractorSettings();
-        T GetComponent<T>();
+        void OnInteractionEnd(IInteractable interactable);
     }
 }
