@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a19325e256ca44438fbdb303e943c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sens: 0
+  sens: 500
   body: {fileID: 1637339353}
 --- !u!4 &642897612 stripped
 Transform:
@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2025961367817716706, guid: d6ac79f9e225ceb418ef7c3510d33bdb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.13
+      value: 3.22
       objectReference: {fileID: 0}
     - target: {fileID: 2025961367817716706, guid: d6ac79f9e225ceb418ef7c3510d33bdb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -206,8 +206,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerObject
       objectReference: {fileID: 0}
+    - target: {fileID: 2025961368147291411, guid: d6ac79f9e225ceb418ef7c3510d33bdb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.029
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -205611147309993582, guid: d6ac79f9e225ceb418ef7c3510d33bdb, type: 3}
+    - {fileID: 2025961366649552883, guid: d6ac79f9e225ceb418ef7c3510d33bdb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d6ac79f9e225ceb418ef7c3510d33bdb, type: 3}
 --- !u!1 &705507993
 GameObject:
@@ -336,7 +341,7 @@ GameObject:
   - component: {fileID: 835813370}
   - component: {fileID: 835813369}
   - component: {fileID: 835813368}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +419,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835813367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.66, z: 0}
+  m_LocalPosition: {x: 0, y: 0.95, z: 0}
   m_LocalScale: {x: 31.311003, y: 1.2475, z: 55.887997}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -562,15 +567,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
-  grounded: 0
+  grounded: 1
   ground: {fileID: 642897612}
-  distance: 0.3
+  distance: 0.1
   speed: 8
-  jumpHeight: 1
-  gravity: -30
+  jumpHeight: 2
+  gravity: -50
   currentPosition: {x: 0, y: 0, z: 0}
   lastPosition: {x: 0, y: 0, z: 0}
   currentSpeed: 0
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
