@@ -24,7 +24,7 @@ namespace AliMertCetin.Scripts.InteractionSystem
             interactionHandler.Update();
 
             // No input, return
-            if (Input.GetKeyDown(KeyCode.Z) == false) return;
+            if (Input.GetKeyDown(interactorSettings.interactionKey) == false) return;
             // There is no interactable selected
             if (interactionHandler.IsInteractableSelected() == false) return;
             
