@@ -1,12 +1,13 @@
 using UnityEngine;
 using XIV.Core.TweenSystem;
 using XIV.Core.Utils;
+using XIV.Packages.InventorySystem.ScriptableObjects;
 
 namespace AliMertCetin.Scripts.InteractionSystem
 {
     public class CollectableObject : MonoBehaviour, IInteractable
     {
-        public string itemName;
+        public ItemSOData itemData;
         bool isInInteraction;
 
         bool IInteractable.IsInInteraction => isInInteraction;

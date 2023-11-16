@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b4e6145369427bab8f02e10807d78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
 --- !u!1 &317629772
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +597,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1157169935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1157169936}
+  - component: {fileID: 1157169937}
+  m_Layer: 0
+  m_Name: PlayerInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1157169936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157169935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 611522406}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1157169937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157169935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a56ef09882e12574d92b806011dd82c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySO: {fileID: 11400000, guid: 82b3b12683b758046a00be6f745188b5, type: 2}
+  inventoryLoadedChannel: {fileID: 11400000, guid: de7ce83e09349d94dba5d60903aaa07d, type: 2}
+  onSceneReady: {fileID: 11400000, guid: 802739b084db0c4408a77fad22d7c396, type: 2}
 --- !u!1 &1889323240
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,4 +868,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa3d62dab094dcab2687f18ffa48097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: TestItem
+  itemData:
+    itemSO: {fileID: 11400000, guid: 73ce69bc459e92048a0cc004aef968a9, type: 2}
+    quantity: 1
