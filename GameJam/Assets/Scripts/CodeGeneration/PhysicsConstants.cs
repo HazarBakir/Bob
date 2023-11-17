@@ -12,11 +12,15 @@ public static class PhysicsConstants
 	public static readonly int TransparentFXLayer = LayerMask.NameToLayer("TransparentFX");
 	public const string Ignore_Raycast = "Ignore Raycast";
 	public static readonly int Ignore_RaycastLayer = LayerMask.NameToLayer("Ignore Raycast");
+	public const string Ground = "Ground";
+	public static readonly int GroundLayer = LayerMask.NameToLayer("Ground");
 	public const string Water = "Water";
 	public static readonly int WaterLayer = LayerMask.NameToLayer("Water");
 	public const string UI = "UI";
 	public static readonly int UILayer = LayerMask.NameToLayer("UI");
 	public const string Interactable = "Interactable";
 	public static readonly int InteractableLayer = LayerMask.NameToLayer("Interactable");
+	public const string Interactor = "Interactor";
+	public static readonly int InteractorLayer = LayerMask.NameToLayer("Interactor");
 	
 } // class PhysicsConstants
