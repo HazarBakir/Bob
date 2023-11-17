@@ -2,7 +2,7 @@
 {
     Properties
     {
-        _Color ("Color", Color) = (1,1,1,1)
+        _Color ("ColorHDR", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
@@ -13,14 +13,14 @@
     }
     SubShader
     {
-        Tags { "Queue" = "Geometry" "IgnoreProjector" = "True"  "RenderType"="Geometry" }
+         Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalRenderPipeline" }
+
         LOD 200
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard addshadow
-        // Use shader model 3.0 target, to get nicer looking lighting
-        #pragma target 3.0
+        #pragma surface surf Standard fullforwardshadows alpha:blend
+
 
         sampler2D _MainTex;
 
@@ -58,5 +58,5 @@
         }
         ENDCG
     }
-    FallBack "VertexLit"
+    FallBack "URP/Lit"
 }
