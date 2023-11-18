@@ -18,7 +18,8 @@ namespace AliMertCetin.Scripts.EnemyAI.States
 
         protected override void InitializeChildStates()
         {
-            base.AddChildState(factory.GetState<EnemyMoveState>());
+            base.AddChildState(factory.GetState<EnemyIdleState>());
+            base.AddChildState(factory.GetState<EnemyAttackState>());
         }
 
         protected override void CheckTransitions()

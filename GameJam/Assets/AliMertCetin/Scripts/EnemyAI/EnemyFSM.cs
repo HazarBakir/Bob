@@ -17,7 +17,6 @@ namespace AliMertCetin.Scripts.EnemyAI
     {
         [SerializeField] TransformChannelSO onPlayerLoadedChannel;
         [SerializeField] public float rotationSpeed = 50f;
-        [field: SerializeField] public Transform model { get; private set; }
         [field: SerializeField] public float groundCheckRadius { get; private set; } = 0.25f;
         [field: SerializeField] public float moveSpeed { get; private set; } = 20f;
         [field: SerializeField] public float attackCooldown { get; private set; } = 3f;
@@ -31,29 +30,27 @@ namespace AliMertCetin.Scripts.EnemyAI
         public NavMeshAgent navMeshAgent { get; private set; }
         public Transform playerTransform { get; private set; }
         IDisposable unsubscribeContract;
+        public Animator animator { get; private set; }
 
         protected override void Awake()
         {
             base.Awake();
             navMeshAgent = GetComponent<NavMeshAgent>();
-            var damageable = GetComponentInChildren<DamageableComponent>() as IDamageable;
-            unsubscribeContract = damageable.Subscribe(this);
-        }
-
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-            unsubscribeContract.Dispose();
+            animator = GetComponent<Animator>();
         }
 
         void OnEnable()
         {
             onPlayerLoadedChannel.Register(OnPlayerLoaded);
+            unsubscribeContract?.Dispose();
+            var damageable = GetComponentInChildren<DamageableComponent>() as IDamageable;
+            unsubscribeContract = damageable.Subscribe(this);
         }
 
         void OnDisable()
         {
             onPlayerLoadedChannel.Unregister(OnPlayerLoaded);
+            unsubscribeContract?.Dispose();
         }
 
         void OnPlayerLoaded(Transform playerTransform)
@@ -107,12 +104,6 @@ namespace AliMertCetin.Scripts.EnemyAI
         }
 
 #if UNITY_EDITOR
-
-        void Reset()
-        {
-            if (model) return;
-            model = transform.GetChild(0);
-        }
 
         void OnDrawGizmos()
         {

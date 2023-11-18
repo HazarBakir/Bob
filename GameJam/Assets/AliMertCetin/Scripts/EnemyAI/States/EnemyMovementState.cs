@@ -1,13 +1,12 @@
 ﻿using AliMertCetin.Scripts.EnemyAI.Extensions;
 using TheGame.FSM;
-using UnityEngine;
 using XIV.Core.Extensions;
 
 namespace AliMertCetin.Scripts.EnemyAI.States
 {
-    public class EnemyMoveState : State<EnemyFSM, EnemyStateFactory>
+    public class EnemyMovementState : State<EnemyFSM, EnemyStateFactory>
     {
-        public EnemyMoveState(EnemyFSM stateMachine, EnemyStateFactory stateFactory) : base(stateMachine, stateFactory)
+        public EnemyMovementState(EnemyFSM stateMachine, EnemyStateFactory stateFactory) : base(stateMachine, stateFactory)
         {
         }
 
@@ -16,6 +15,7 @@ namespace AliMertCetin.Scripts.EnemyAI.States
             stateMachine.navMeshAgent.enabled = true;
             stateMachine.navMeshAgent.speed = stateMachine.moveSpeed;
             stateMachine.navMeshAgent.stoppingDistance = stateMachine.attackRange;
+            stateMachine.animator.SetBool(AnimationConstants.PlayerController.Parameters.PlayerController_IsWalking_BoolID, true);
         }
 
         protected override void OnStateUpdate()
@@ -24,11 +24,16 @@ namespace AliMertCetin.Scripts.EnemyAI.States
             stateMachine.navMeshAgent.SetDestination(targetPosition);
         }
 
+        protected override void OnStateExit()
+        {
+            stateMachine.animator.SetBool(AnimationConstants.PlayerController.Parameters.PlayerController_IsWalking_BoolID, false);
+        }
+
         protected override void CheckTransitions()
         {
             if (stateMachine.navMeshAgent.IsReachedDestination())
             {
-                ChangeStateFromChild(factory.GetState<EnemyAttackState>());
+                ChangeStateFromChild(factory.GetState<EnemyIdleState>());
                 return;
             }
         }
