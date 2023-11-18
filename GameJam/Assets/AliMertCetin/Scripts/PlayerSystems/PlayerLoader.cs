@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using AliMertCetin.Scripts.PlayerSystems.FSM;
+using UnityEngine;
 using XIV.Packages.ScriptableObjects.Channels;
 
-namespace AliMertCetin.Scripts.EnemyAI
+namespace AliMertCetin.Scripts.PlayerSystems
 {
-    [RequireComponent(typeof(PlayerMove))]
+    [RequireComponent(typeof(PlayerFSM))]
     public class PlayerLoader : MonoBehaviour
     {
         [SerializeField] TransformChannelSO playerLaodedChannel;

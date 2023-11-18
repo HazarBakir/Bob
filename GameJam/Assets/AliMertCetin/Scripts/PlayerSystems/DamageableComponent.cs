@@ -2,7 +2,7 @@
 using UnityEngine;
 using XIV.DesignPatterns.Common.HealthSystem;
 
-namespace AliMertCetin.Scripts.InteractionSystem
+namespace AliMertCetin.Scripts.PlayerSystems
 {
     public class DamageableComponent : MonoBehaviour, IDamageable
     {
