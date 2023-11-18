@@ -11,11 +11,6 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
 
         protected override void CheckTransitions()
         {
-            if (stateMachine.isGrounded == false)
-            {
-                // fall state
-            }
-
             if (stateMachine.inputReader.inputNormalized.sqrMagnitude > Mathf.Epsilon)
             {
                 ChangeStateFromChild(factory.GetState<PlayerMovementState>());

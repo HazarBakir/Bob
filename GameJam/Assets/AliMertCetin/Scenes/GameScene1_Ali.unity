@@ -528,6 +528,7 @@ MonoBehaviour:
   ground: {fileID: 1253960730}
   radius: 0.1
   speed: 16
+  runSpeed: 22
   jumpHeight: 6
   gravity: -250
   groundMask:

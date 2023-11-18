@@ -35,12 +35,12 @@ public static class AnimationConstants
 			// Members
 			public const string PlayerController_Idle = "Idle";
 			public static readonly int PlayerController_IdleHash = Animator.StringToHash("Idle");
-			public const string PlayerController_Sprint = "Sprint";
-			public static readonly int PlayerController_SprintHash = Animator.StringToHash("Sprint");
-			public const string PlayerController_Walking = "Walking";
-			public static readonly int PlayerController_WalkingHash = Animator.StringToHash("Walking");
 			public const string PlayerController_Jump = "Jump";
 			public static readonly int PlayerController_JumpHash = Animator.StringToHash("Jump");
+			public const string PlayerController_Walking = "Walking";
+			public static readonly int PlayerController_WalkingHash = Animator.StringToHash("Walking");
+			public const string PlayerController_Sprint = "Sprint";
+			public static readonly int PlayerController_SprintHash = Animator.StringToHash("Sprint");
 			
 		} // class Clips
 		
@@ -51,6 +51,8 @@ public static class AnimationConstants
 			public static readonly int PlayerController_IsWalking_BoolID = Animator.StringToHash("IsWalking");
 			public const string PlayerController_IsJumping_Bool = "IsJumping";
 			public static readonly int PlayerController_IsJumping_BoolID = Animator.StringToHash("IsJumping");
+			public const string PlayerController_MovementSpeed01_Float = "MovementSpeed01";
+			public static readonly int PlayerController_MovementSpeed01_FloatID = Animator.StringToHash("MovementSpeed01");
 			
 		} // class Parameters
 		
@@ -63,6 +65,37 @@ public static class AnimationConstants
 		
 		
 	} // class PlayerController
+	
+	public static class ShatteredWindowParts
+	{
+		// Inner Classes
+		public static class Clips
+		{
+			// Members
+			public const string ShatteredWindowParts_Window_Smash = "Window_Smash";
+			public static readonly int ShatteredWindowParts_Window_SmashHash = Animator.StringToHash("Window_Smash");
+			public const string ShatteredWindowParts_Window_Idle = "Window_Idle";
+			public static readonly int ShatteredWindowParts_Window_IdleHash = Animator.StringToHash("Window_Idle");
+			
+		} // class Clips
+		
+		public static class Parameters
+		{
+			// Members
+			public const string ShatteredWindowParts_WindowSmash_Trigger = "WindowSmash";
+			public static readonly int ShatteredWindowParts_WindowSmash_TriggerID = Animator.StringToHash("WindowSmash");
+			
+		} // class Parameters
+		
+		public static class Layers
+		{
+			// Members
+			public const int ShatteredWindowParts_Base_Layer = 0;
+			
+		} // class Layers
+		
+		
+	} // class ShatteredWindowParts
 	
 	
 } // class AnimationConstants

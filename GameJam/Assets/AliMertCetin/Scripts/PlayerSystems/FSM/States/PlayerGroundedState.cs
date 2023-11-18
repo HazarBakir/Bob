@@ -29,6 +29,12 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
 
         protected override void CheckTransitions()
         {
+            if (stateMachine.isGrounded == false)
+            {
+                // fall state
+                ChangeStateFromRoot(factory.GetState<PlayerFallState>());
+            }
+
             if (stateMachine.isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
                 ChangeStateFromRoot(factory.GetState<PlayerJumpState>());

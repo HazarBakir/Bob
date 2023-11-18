@@ -16,9 +16,12 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
 
         protected override void OnStateUpdate()
         {
-            float speed = stateMachine.speed;
+            float speed = stateMachine.inputReader.IsRunPressed ? stateMachine.runSpeed : stateMachine.speed;
             float horizontal = stateMachine.inputReader.inputNormalized.x;
             float vertical = stateMachine.inputReader.inputNormalized.z;
+
+            var normalizedSpeed = speed / stateMachine.runSpeed;
+            stateMachine.animator.SetFloat(AnimationConstants.PlayerController.Parameters.PlayerController_MovementSpeed01_Float, normalizedSpeed);
 
             Vector3 direction = (transform.right * horizontal + transform.forward * vertical).normalized;
             var inputMovement = direction * (speed * Time.deltaTime);

@@ -11,6 +11,7 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM
         [Tooltip("Ground check radius")]
         public float radius = 0.1f;
         public float speed = 8f;
+        public float runSpeed = 16f;
         public float jumpHeight = 2f;
         public float gravity = -50f;
         public LayerMask groundMask;
