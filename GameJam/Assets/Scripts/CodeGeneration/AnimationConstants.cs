@@ -41,6 +41,10 @@ public static class AnimationConstants
 			public static readonly int PlayerController_WalkingHash = Animator.StringToHash("Walking");
 			public const string PlayerController_Sprint = "Sprint";
 			public static readonly int PlayerController_SprintHash = Animator.StringToHash("Sprint");
+			public const string PlayerController_PunchingLeft = "PunchingLeft";
+			public static readonly int PlayerController_PunchingLeftHash = Animator.StringToHash("PunchingLeft");
+			public const string PlayerController_PunchingRight = "PunchingRight";
+			public static readonly int PlayerController_PunchingRightHash = Animator.StringToHash("PunchingRight");
 			
 		} // class Clips
 		
@@ -60,6 +64,7 @@ public static class AnimationConstants
 		{
 			// Members
 			public const int PlayerController_Base_Layer = 0;
+			public const int PlayerController_UpperBody_Layer = 1;
 			
 		} // class Layers
 		

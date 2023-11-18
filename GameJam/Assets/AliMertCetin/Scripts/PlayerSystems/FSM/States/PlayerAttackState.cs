@@ -1,4 +1,6 @@
-﻿using TheGame.FSM;
+﻿using System.Buffers;
+using AliMertCetin.Scripts.InteractionSystem;
+using TheGame.FSM;
 using UnityEngine;
 using XIV.DesignPatterns.Common.HealthSystem;
 
@@ -6,24 +8,32 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
 {
     public class PlayerAttackState : State<PlayerFSM, PlayerStateFactory>
     {
-        IDamageable target;
-        bool didAttacked;
-        
         public PlayerAttackState(PlayerFSM stateMachine, PlayerStateFactory stateFactory) : base(stateMachine, stateFactory)
         {
         }
 
         protected override void OnStateUpdate()
         {
-            didAttacked = Input.GetMouseButtonDown(0);
-            if (didAttacked == false) return;
-            // int punchAnimation = Random.value > 0.5f ? AnimationConstants.RightPunch : AnimationConstants.LeftPunch;
+            if (stateMachine.inputReader.isAttackPressed == false) return;
             
+            var buffer = ArrayPool<Collider>.Shared.Rent(4);
+            int hitCount = Physics.OverlapSphereNonAlloc(transform.position + transform.forward, 0.5f, buffer, 1 << PhysicsConstants.EnemyLayer);
+
+            for (int i = 0; i < hitCount; i++)
+            {
+                var coll = buffer[i];
+                if (coll.TryGetComponent(out IDamageable damageable) && damageable.CanReceiveDamage())
+                {
+                    damageable.ReceiveDamage(stateMachine.punchDamageAmount);
+                }
+            }
+                
+            ArrayPool<Collider>.Shared.Return(buffer);
         }
 
         protected override void CheckTransitions()
         {
-            if (didAttacked)
+            if (stateMachine.inputReader.isAttackPressed)
             {
                 ChangeStateFromChild(factory.GetState<PlayerWaitAttackCooldownState>());
                 return;

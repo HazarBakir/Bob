@@ -1,15 +1,19 @@
 using System;
 using System.Buffers;
 using AliMertCetin.Scripts.EnemyAI.States;
+using AliMertCetin.Scripts.PlayerSystems;
 using TheGame.FSM;
 using UnityEngine;
 using UnityEngine.AI;
 using XIV.Core.Extensions;
+using XIV.Core.TweenSystem;
+using XIV.Core.Utils;
+using XIV.DesignPatterns.Common.HealthSystem;
 using XIV.Packages.ScriptableObjects.Channels;
 
 namespace AliMertCetin.Scripts.EnemyAI
 {
-    public class EnemyFSM : StateMachine
+    public class EnemyFSM : StateMachine, IObserver<HealthChange>
     {
         [SerializeField] TransformChannelSO onPlayerLoadedChannel;
         [SerializeField] public float rotationSpeed = 50f;
@@ -27,12 +31,21 @@ namespace AliMertCetin.Scripts.EnemyAI
         public GunUser gunUser { get; private set; }
         public NavMeshAgent navMeshAgent { get; private set; }
         public Transform playerTransform { get; private set; }
+        IDisposable unsubscribeContract;
 
         protected override void Awake()
         {
             base.Awake();
             gunUser = GetComponent<GunUser>();
             navMeshAgent = GetComponent<NavMeshAgent>();
+            var damageable = GetComponentInChildren<DamageableComponent>() as IDamageable;
+            unsubscribeContract = damageable.Subscribe(this);
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            unsubscribeContract.Dispose();
         }
 
         void OnEnable()
@@ -69,6 +82,30 @@ namespace AliMertCetin.Scripts.EnemyAI
             
             ArrayPool<Collider>.Shared.Return(buffer);
             return isGrounded;
+        }
+        void IObserver<HealthChange>.OnCompleted() { }
+
+        void IObserver<HealthChange>.OnError(Exception error) { }
+
+        void IObserver<HealthChange>.OnNext(HealthChange value)
+        {
+            transform.CancelTween();
+            if (value.healthDataAfter.isDepleted)
+            {
+                transform.XIVTween()
+                    .Scale(Vector3.one, Vector3.zero, 0.75f, EasingFunction.EaseInOutBounce)
+                    .OnComplete(() =>
+                    {
+                        Destroy(this.gameObject);
+                    })
+                    .Start();
+            }
+            else
+            {
+                transform.XIVTween()
+                    .Scale(Vector3.one, Vector3.one * 0.75f, 0.5f, EasingFunction.EaseOutExpo, true)
+                    .Start();
+            }
         }
 
 #if UNITY_EDITOR

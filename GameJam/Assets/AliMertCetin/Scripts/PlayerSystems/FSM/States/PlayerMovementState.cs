@@ -16,7 +16,7 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
 
         protected override void OnStateUpdate()
         {
-            float speed = stateMachine.inputReader.IsRunPressed ? stateMachine.runSpeed : stateMachine.speed;
+            float speed = stateMachine.inputReader.isRunPressed ? stateMachine.runSpeed : stateMachine.speed;
             float horizontal = stateMachine.inputReader.inputNormalized.x;
             float vertical = stateMachine.inputReader.inputNormalized.z;
 

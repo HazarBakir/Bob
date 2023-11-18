@@ -17,6 +17,7 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM
         public LayerMask groundMask;
         [HideInInspector] public bool isGrounded;
         [HideInInspector] public float yVelocity;
+        public float punchDamageAmount = 15f;
 
         float currentSpeed;
         public PlayerInputReader inputReader { get; private set; }
