@@ -4,7 +4,7 @@ using XIV.DesignPatterns.Common.HealthSystem;
 
 namespace AliMertCetin.Scripts.InteractionSystem
 {
-    public class DamageablePlayer : MonoBehaviour, IDamageable
+    public class DamageableComponent : MonoBehaviour, IDamageable
     {
         [SerializeField] Health health;
 
