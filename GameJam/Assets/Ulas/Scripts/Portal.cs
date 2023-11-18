@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Portal : MonoBehaviour {
     [Header ("Main Settings")]
@@ -41,13 +43,16 @@ public class Portal : MonoBehaviour {
             var m = linkedPortal.transform.localToWorldMatrix * transform.worldToLocalMatrix * travellerT.localToWorldMatrix;
 
             Vector3 offsetFromPortal = travellerT.position - transform.position;
+            Debug.Log(transform.position+" "+travellerT.position+" "+offsetFromPortal+" "+transform.forward);
             int portalSide = System.Math.Sign (Vector3.Dot (offsetFromPortal, transform.forward));
             int portalSideOld = System.Math.Sign (Vector3.Dot (traveller.previousOffsetFromPortal, transform.forward));
+            Debug.Log("portal side "+portalSide+" portal side old "+ portalSideOld);
             // Teleport the traveller if it has crossed from one side of the portal to the other
             if (portalSide != portalSideOld) {
                 var positionOld = travellerT.position;
                 var rotOld = travellerT.rotation;
-                traveller.Teleport (transform, linkedPortal.transform, m.GetColumn (3), m.rotation);
+                Debug.Log(m.GetColumn(3));
+                traveller.Teleport (transform, linkedPortal.transform, m.GetColumn (3), m.rotation);    
                 traveller.graphicsClone.transform.SetPositionAndRotation (positionOld, rotOld);
                 // Can't rely on OnTriggerEnter/Exit to be called next frame since it depends on when FixedUpdate runs
                 linkedPortal.OnTravellerEnterPortal (traveller);
@@ -56,7 +61,7 @@ public class Portal : MonoBehaviour {
 
             } else {
                 traveller.graphicsClone.transform.SetPositionAndRotation (m.GetColumn (3), m.rotation);
-                //UpdateSliceParams (traveller);
+                UpdateSliceParams (traveller);
                 traveller.previousOffsetFromPortal = offsetFromPortal;
             }
         }
@@ -71,7 +76,7 @@ public class Portal : MonoBehaviour {
 
     // Manually render the camera attached to this portal
     // Called after PrePortalRender, and before PostPortalRender
-    public void Render () {
+    public void Render (ScriptableRenderContext context) {
 
         // Skip rendering the view from this portal if player is not looking at the linked portal
         if (!CameraUtility.VisibleFromCamera (linkedPortal.screen, playerCam)) {
@@ -110,7 +115,7 @@ public class Portal : MonoBehaviour {
             portalCam.transform.SetPositionAndRotation (renderPositions[i], renderRotations[i]);
             SetNearClipPlane ();
             HandleClipping ();
-            portalCam.Render ();
+            UniversalRenderPipeline.RenderSingleCamera(context, portalCam);
 
             if (i == startIndex) {
                 linkedPortal.screen.material.SetInt ("displayMask", 1);
@@ -286,7 +291,7 @@ public class Portal : MonoBehaviour {
         }
     }
 
-    void OnTriggerExit (Collider other) {
+    void OnTriggerExit (Collider other) {   
         var traveller = other.GetComponent<PortalTraveller> ();
         if (traveller && trackedTravellers.Contains (traveller)) {
             traveller.ExitPortalThreshold ();
