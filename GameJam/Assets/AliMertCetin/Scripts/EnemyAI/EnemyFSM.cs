@@ -28,7 +28,6 @@ namespace AliMertCetin.Scripts.EnemyAI
         [field: SerializeField] public float fieldOfViewDistance { get; private set; } = 8f;
         [field: SerializeField] public Vector3 gravity { get; private set; } = Physics.gravity;
         
-        public GunUser gunUser { get; private set; }
         public NavMeshAgent navMeshAgent { get; private set; }
         public Transform playerTransform { get; private set; }
         IDisposable unsubscribeContract;
@@ -36,7 +35,6 @@ namespace AliMertCetin.Scripts.EnemyAI
         protected override void Awake()
         {
             base.Awake();
-            gunUser = GetComponent<GunUser>();
             navMeshAgent = GetComponent<NavMeshAgent>();
             var damageable = GetComponentInChildren<DamageableComponent>() as IDamageable;
             unsubscribeContract = damageable.Subscribe(this);

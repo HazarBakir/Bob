@@ -31,12 +31,6 @@ namespace AliMertCetin.Scripts.EnemyAI.States
                 ChangeStateFromChild(factory.GetState<EnemyAttackState>());
                 return;
             }
-
-            if (stateMachine.gunUser.HasGun() == false)
-            {
-                ChangeStateFromChild(factory.GetState<EnemySearchGunState>());
-                return;
-            }
         }
     }
 }
