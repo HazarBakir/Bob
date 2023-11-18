@@ -9,6 +9,7 @@ namespace AliMertCetin.Scripts.EnemyAI.States
     {
         IDamageable damageablePlayer;
         Timer cooldownTimer;
+        const float ERROR = 0.25f;
         
         public EnemyAttackState(EnemyFSM stateMachine, EnemyStateFactory stateFactory) : base(stateMachine, stateFactory)
         {
@@ -16,9 +17,9 @@ namespace AliMertCetin.Scripts.EnemyAI.States
 
         protected override void OnStateEnter(State comingFrom)
         {
+            stateMachine.navMeshAgent.enabled = false;
             damageablePlayer = stateMachine.playerTransform.GetComponent<IDamageable>();
             cooldownTimer = new Timer(stateMachine.attackCooldown);
-            damageablePlayer.ReceiveDamage(stateMachine.dealDamageAmount);
         }
 
         protected override void OnStateUpdate()
@@ -32,7 +33,8 @@ namespace AliMertCetin.Scripts.EnemyAI.States
         {
             var pos = transform.position;
             var playerPos = stateMachine.playerTransform.position;
-            if ((playerPos - pos).sqrMagnitude > stateMachine.attackRange)
+            var distance = Vector3.Distance(playerPos, pos);
+            if (distance > stateMachine.attackRange + ERROR)
             {
                 ChangeStateFromChild(factory.GetState<EnemyMoveState>());
                 return;

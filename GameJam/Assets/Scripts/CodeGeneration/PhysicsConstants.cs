@@ -22,5 +22,9 @@ public static class PhysicsConstants
 	public static readonly int InteractableLayer = LayerMask.NameToLayer("Interactable");
 	public const string Interactor = "Interactor";
 	public static readonly int InteractorLayer = LayerMask.NameToLayer("Interactor");
+	public const string Enemy = "Enemy";
+	public static readonly int EnemyLayer = LayerMask.NameToLayer("Enemy");
+	public const string Player = "Player";
+	public static readonly int PlayerLayer = LayerMask.NameToLayer("Player");
 	
 } // class PhysicsConstants

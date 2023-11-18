@@ -10,6 +10,8 @@ namespace AliMertCetin.Scripts.EnemyAI
             AddState(new EnemyGroundedState(stateMachine, this)); // parent state
             AddState(new EnemyMoveState(stateMachine, this)); // child state
             AddState(new EnemyAttackState(stateMachine, this)); // child state
+            AddState(new EnemySearchGunState(stateMachine, this)); // child state
+            AddState(new EnemyWanderState(stateMachine, this)); // child state
             AddState(new EnemyFallingState(stateMachine, this)); // parent state
         }
     }

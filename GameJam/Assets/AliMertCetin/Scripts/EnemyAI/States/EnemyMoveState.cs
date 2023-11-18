@@ -1,4 +1,5 @@
-﻿using TheGame.FSM;
+﻿using AliMertCetin.Scripts.EnemyAI.Extensions;
+using TheGame.FSM;
 using UnityEngine;
 using XIV.Core.Extensions;
 
@@ -10,29 +11,30 @@ namespace AliMertCetin.Scripts.EnemyAI.States
         {
         }
 
+        protected override void OnStateEnter(State comingFrom)
+        {
+            stateMachine.navMeshAgent.enabled = true;
+            stateMachine.navMeshAgent.speed = stateMachine.moveSpeed;
+            stateMachine.navMeshAgent.stoppingDistance = stateMachine.attackRange;
+        }
+
         protected override void OnStateUpdate()
         {
-            var pos = transform.position;
-            var playerPos = stateMachine.playerTransform.position.SetY(pos.y);
-            
-            pos = Vector3.MoveTowards(pos, playerPos, stateMachine.moveSpeed * Time.deltaTime);
-            transform.position = pos;
-            var forward = transform.forward;
-            var lookDir = (playerPos - pos).normalized;
-            var axis = Vector3.up;
-            var smoothRot = Vector3.MoveTowards(forward, lookDir, stateMachine.rotationSpeed * Time.deltaTime);
-            var angle = Vector3.SignedAngle(forward, smoothRot, axis);
-            var rot = Quaternion.AngleAxis(angle, axis);
-            transform.rotation *= rot;
+            var targetPosition = stateMachine.playerTransform.position.SetY(transform.position.y);
+            stateMachine.navMeshAgent.SetDestination(targetPosition);
         }
 
         protected override void CheckTransitions()
         {
-            var pos = transform.position;
-            var playerPos = stateMachine.playerTransform.position;
-            if ((playerPos - pos).sqrMagnitude < stateMachine.attackRange)
+            if (stateMachine.navMeshAgent.IsReachedDestination())
             {
                 ChangeStateFromChild(factory.GetState<EnemyAttackState>());
+                return;
+            }
+
+            if (stateMachine.gunUser.HasGun() == false)
+            {
+                ChangeStateFromChild(factory.GetState<EnemySearchGunState>());
                 return;
             }
         }

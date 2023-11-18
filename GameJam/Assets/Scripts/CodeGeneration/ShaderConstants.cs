@@ -5,4 +5,234 @@ using UnityEngine;
 
 public static class ShaderConstants
 {
+	// Inner Classes
+	public static class MK4_PlantsWaving
+	{
+		// Members
+		public const string NoiseRGB_Texture = "_NoiseRGB";
+		public static readonly int NoiseRGB_TextureID = Shader.PropertyToID("_NoiseRGB");
+		public const string Cutoff_Float = "_Cutoff";
+		public static readonly int Cutoff_FloatID = Shader.PropertyToID("_Cutoff");
+		public const string Albedo_Texture = "_Albedo";
+		public static readonly int Albedo_TextureID = Shader.PropertyToID("_Albedo");
+		public const string NormalMap_Texture = "_NormalMap";
+		public static readonly int NormalMap_TextureID = Shader.PropertyToID("_NormalMap");
+		public const string NormalScale_Range = "_NormalScale";
+		public static readonly int NormalScale_RangeID = Shader.PropertyToID("_NormalScale");
+		public const string Speed1_Range = "_Speed1";
+		public static readonly int Speed1_RangeID = Shader.PropertyToID("_Speed1");
+		public const string DistortionBlend_Range = "_DistortionBlend";
+		public static readonly int DistortionBlend_RangeID = Shader.PropertyToID("_DistortionBlend");
+		public const string DistortionPower_Range = "_DistortionPower";
+		public static readonly int DistortionPower_RangeID = Shader.PropertyToID("_DistortionPower");
+		public const string WindGloss_Texture = "_WindGloss";
+		public static readonly int WindGloss_TextureID = Shader.PropertyToID("_WindGloss");
+		public const string texcoord_Texture = "_texcoord";
+		public static readonly int texcoord_TextureID = Shader.PropertyToID("_texcoord");
+		public const string dirty_Float = "__dirty";
+		public static readonly int dirty_FloatID = Shader.PropertyToID("__dirty");
+		
+	} // class MK4_PlantsWaving
+	
+	public static class MK4_PlantsWaving1sided
+	{
+		// Members
+		public const string NoiseRGB_Texture = "_NoiseRGB";
+		public static readonly int NoiseRGB_TextureID = Shader.PropertyToID("_NoiseRGB");
+		public const string Cutoff_Float = "_Cutoff";
+		public static readonly int Cutoff_FloatID = Shader.PropertyToID("_Cutoff");
+		public const string Albedo_Texture = "_Albedo";
+		public static readonly int Albedo_TextureID = Shader.PropertyToID("_Albedo");
+		public const string NormalMap_Texture = "_NormalMap";
+		public static readonly int NormalMap_TextureID = Shader.PropertyToID("_NormalMap");
+		public const string NormalScale_Range = "_NormalScale";
+		public static readonly int NormalScale_RangeID = Shader.PropertyToID("_NormalScale");
+		public const string Speed1_Range = "_Speed1";
+		public static readonly int Speed1_RangeID = Shader.PropertyToID("_Speed1");
+		public const string DistortionBlend_Range = "_DistortionBlend";
+		public static readonly int DistortionBlend_RangeID = Shader.PropertyToID("_DistortionBlend");
+		public const string DistortionPower_Range = "_DistortionPower";
+		public static readonly int DistortionPower_RangeID = Shader.PropertyToID("_DistortionPower");
+		public const string WindGloss_Texture = "_WindGloss";
+		public static readonly int WindGloss_TextureID = Shader.PropertyToID("_WindGloss");
+		public const string texcoord_Texture = "_texcoord";
+		public static readonly int texcoord_TextureID = Shader.PropertyToID("_texcoord");
+		public const string dirty_Float = "__dirty";
+		public static readonly int dirty_FloatID = Shader.PropertyToID("__dirty");
+		
+	} // class MK4_PlantsWaving1sided
+	
+	public static class MK4_Rock_cover
+	{
+		// Members
+		public const string RockAlbedo_Texture = "_RockAlbedo";
+		public static readonly int RockAlbedo_TextureID = Shader.PropertyToID("_RockAlbedo");
+		public const string RockNormal_Texture = "_RockNormal";
+		public static readonly int RockNormal_TextureID = Shader.PropertyToID("_RockNormal");
+		public const string Normalbase_Range = "_Normalbase";
+		public static readonly int Normalbase_RangeID = Shader.PropertyToID("_Normalbase");
+		public const string RockSpecular_Texture = "_RockSpecular";
+		public static readonly int RockSpecular_TextureID = Shader.PropertyToID("_RockSpecular");
+		public const string AO_Texture = "_AO";
+		public static readonly int AO_TextureID = Shader.PropertyToID("_AO");
+		public const string CoverAlbedo_Texture = "_CoverAlbedo";
+		public static readonly int CoverAlbedo_TextureID = Shader.PropertyToID("_CoverAlbedo");
+		public const string CoverNormal_Texture = "_CoverNormal";
+		public static readonly int CoverNormal_TextureID = Shader.PropertyToID("_CoverNormal");
+		public const string NormalCoverPower_Range = "_NormalCoverPower";
+		public static readonly int NormalCoverPower_RangeID = Shader.PropertyToID("_NormalCoverPower");
+		public const string CoverSpecular_Texture = "_CoverSpecular";
+		public static readonly int CoverSpecular_TextureID = Shader.PropertyToID("_CoverSpecular");
+		public const string CoverAmount_Range = "_CoverAmount";
+		public static readonly int CoverAmount_RangeID = Shader.PropertyToID("_CoverAmount");
+		public const string CoverbyAO_Range = "_CoverbyAO";
+		public static readonly int CoverbyAO_RangeID = Shader.PropertyToID("_CoverbyAO");
+		public const string DetailNormal_Texture = "_DetailNormal";
+		public static readonly int DetailNormal_TextureID = Shader.PropertyToID("_DetailNormal");
+		public const string NormalDetail_Range = "_NormalDetail";
+		public static readonly int NormalDetail_RangeID = Shader.PropertyToID("_NormalDetail");
+		public const string Detail_Texture = "_Detail";
+		public static readonly int Detail_TextureID = Shader.PropertyToID("_Detail");
+		public const string AODetail_Texture = "_AODetail";
+		public static readonly int AODetail_TextureID = Shader.PropertyToID("_AODetail");
+		public const string texcoord_Texture = "_texcoord";
+		public static readonly int texcoord_TextureID = Shader.PropertyToID("_texcoord");
+		public const string dirty_Float = "__dirty";
+		public static readonly int dirty_FloatID = Shader.PropertyToID("__dirty");
+		
+	} // class MK4_Rock_cover
+	
+	public static class MK4_Trees_Bark_Blend
+	{
+		// Members
+		public const string Albedo_Texture = "_Albedo";
+		public static readonly int Albedo_TextureID = Shader.PropertyToID("_Albedo");
+		public const string Normals_Texture = "_Normals";
+		public static readonly int Normals_TextureID = Shader.PropertyToID("_Normals");
+		public const string NormalScale_Range = "_NormalScale";
+		public static readonly int NormalScale_RangeID = Shader.PropertyToID("_NormalScale");
+		public const string Gloss_ao_mask_Texture = "_Gloss_ao_mask";
+		public static readonly int Gloss_ao_mask_TextureID = Shader.PropertyToID("_Gloss_ao_mask");
+		public const string Moss_Texture = "_Moss";
+		public static readonly int Moss_TextureID = Shader.PropertyToID("_Moss");
+		public const string MossNormal_Texture = "_MossNormal";
+		public static readonly int MossNormal_TextureID = Shader.PropertyToID("_MossNormal");
+		public const string MossNormalBlend_Range = "_MossNormalBlend";
+		public static readonly int MossNormalBlend_RangeID = Shader.PropertyToID("_MossNormalBlend");
+		public const string MossNormalScale_Range = "_MossNormalScale";
+		public static readonly int MossNormalScale_RangeID = Shader.PropertyToID("_MossNormalScale");
+		public const string texcoord_Texture = "_texcoord";
+		public static readonly int texcoord_TextureID = Shader.PropertyToID("_texcoord");
+		public const string dirty_Float = "__dirty";
+		public static readonly int dirty_FloatID = Shader.PropertyToID("__dirty");
+		
+	} // class MK4_Trees_Bark_Blend
+	
+	public static class MK4_Trees_two_sided
+	{
+		// Members
+		public const string Translucency_Range = "_Translucency";
+		public static readonly int Translucency_RangeID = Shader.PropertyToID("_Translucency");
+		public const string TransNormalDistortion_Range = "_TransNormalDistortion";
+		public static readonly int TransNormalDistortion_RangeID = Shader.PropertyToID("_TransNormalDistortion");
+		public const string TransScattering_Range = "_TransScattering";
+		public static readonly int TransScattering_RangeID = Shader.PropertyToID("_TransScattering");
+		public const string TransDirect_Range = "_TransDirect";
+		public static readonly int TransDirect_RangeID = Shader.PropertyToID("_TransDirect");
+		public const string TransAmbient_Range = "_TransAmbient";
+		public static readonly int TransAmbient_RangeID = Shader.PropertyToID("_TransAmbient");
+		public const string TransShadow_Range = "_TransShadow";
+		public static readonly int TransShadow_RangeID = Shader.PropertyToID("_TransShadow");
+		public const string Cutoff_Float = "_Cutoff";
+		public static readonly int Cutoff_FloatID = Shader.PropertyToID("_Cutoff");
+		public const string Color_Color = "_Color";
+		public static readonly int Color_ColorID = Shader.PropertyToID("_Color");
+		public const string Albedo_Texture = "_Albedo";
+		public static readonly int Albedo_TextureID = Shader.PropertyToID("_Albedo");
+		public const string NormalMap_Texture = "_NormalMap";
+		public static readonly int NormalMap_TextureID = Shader.PropertyToID("_NormalMap");
+		public const string NormalScale_Range = "_NormalScale";
+		public static readonly int NormalScale_RangeID = Shader.PropertyToID("_NormalScale");
+		public const string WindPower_Range = "_WindPower";
+		public static readonly int WindPower_RangeID = Shader.PropertyToID("_WindPower");
+		public const string WindScale_Range = "_WindScale";
+		public static readonly int WindScale_RangeID = Shader.PropertyToID("_WindScale");
+		public const string WindNoiseTiling_Range = "_WindNoiseTiling";
+		public static readonly int WindNoiseTiling_RangeID = Shader.PropertyToID("_WindNoiseTiling");
+		public const string WindSpeed_Range = "_WindSpeed";
+		public static readonly int WindSpeed_RangeID = Shader.PropertyToID("_WindSpeed");
+		public const string TransGlossAOWind_Texture = "_TransGlossAOWind";
+		public static readonly int TransGlossAOWind_TextureID = Shader.PropertyToID("_TransGlossAOWind");
+		public const string WindNoise_Texture = "_WindNoise";
+		public static readonly int WindNoise_TextureID = Shader.PropertyToID("_WindNoise");
+		public const string texcoord_Texture = "_texcoord";
+		public static readonly int texcoord_TextureID = Shader.PropertyToID("_texcoord");
+		public const string dirty_Float = "__dirty";
+		public static readonly int dirty_FloatID = Shader.PropertyToID("__dirty");
+		
+	} // class MK4_Trees_two_sided
+	
+	public static class MK4_Trees_two_sided_LOD
+	{
+		// Members
+		public const string Translucency_Range = "_Translucency";
+		public static readonly int Translucency_RangeID = Shader.PropertyToID("_Translucency");
+		public const string TransNormalDistortion_Range = "_TransNormalDistortion";
+		public static readonly int TransNormalDistortion_RangeID = Shader.PropertyToID("_TransNormalDistortion");
+		public const string TransScattering_Range = "_TransScattering";
+		public static readonly int TransScattering_RangeID = Shader.PropertyToID("_TransScattering");
+		public const string TransDirect_Range = "_TransDirect";
+		public static readonly int TransDirect_RangeID = Shader.PropertyToID("_TransDirect");
+		public const string TransAmbient_Range = "_TransAmbient";
+		public static readonly int TransAmbient_RangeID = Shader.PropertyToID("_TransAmbient");
+		public const string TransShadow_Range = "_TransShadow";
+		public static readonly int TransShadow_RangeID = Shader.PropertyToID("_TransShadow");
+		public const string Cutoff_Float = "_Cutoff";
+		public static readonly int Cutoff_FloatID = Shader.PropertyToID("_Cutoff");
+		public const string Albedo_Texture = "_Albedo";
+		public static readonly int Albedo_TextureID = Shader.PropertyToID("_Albedo");
+		public const string NormalMap_Texture = "_NormalMap";
+		public static readonly int NormalMap_TextureID = Shader.PropertyToID("_NormalMap");
+		public const string TransGlossAOWind_Texture = "_TransGlossAOWind";
+		public static readonly int TransGlossAOWind_TextureID = Shader.PropertyToID("_TransGlossAOWind");
+		public const string texcoord_Texture = "_texcoord";
+		public static readonly int texcoord_TextureID = Shader.PropertyToID("_texcoord");
+		public const string dirty_Float = "__dirty";
+		public static readonly int dirty_FloatID = Shader.PropertyToID("__dirty");
+		
+	} // class MK4_Trees_two_sided_LOD
+	
+	public static class Custom_Portal
+	{
+		// Members
+		public const string InactiveColour_Color = "_InactiveColour";
+		public static readonly int InactiveColour_ColorID = Shader.PropertyToID("_InactiveColour");
+		
+	} // class Custom_Portal
+	
+	public static class Custom_Slice
+	{
+		// Members
+		public const string Color_Color = "_Color";
+		public static readonly int Color_ColorID = Shader.PropertyToID("_Color");
+		public const string MainTex_Texture = "_MainTex";
+		public static readonly int MainTex_TextureID = Shader.PropertyToID("_MainTex");
+		public const string Glossiness_Range = "_Glossiness";
+		public static readonly int Glossiness_RangeID = Shader.PropertyToID("_Glossiness");
+		public const string Metallic_Range = "_Metallic";
+		public static readonly int Metallic_RangeID = Shader.PropertyToID("_Metallic");
+		public const string sliceNormal_Vector = "sliceNormal";
+		public static readonly int sliceNormal_VectorID = Shader.PropertyToID("sliceNormal");
+		public const string sliceCentre_Vector = "sliceCentre";
+		public static readonly int sliceCentre_VectorID = Shader.PropertyToID("sliceCentre");
+		public const string sliceOffsetDst_Float = "sliceOffsetDst";
+		public static readonly int sliceOffsetDst_FloatID = Shader.PropertyToID("sliceOffsetDst");
+		
+	} // class Custom_Slice
+	
+	public static class Hidden_VFX_Portal1_System1_OutputParticleQuad
+	{
+	} // class Hidden_VFX_Portal1_System1_OutputParticleQuad
+	
+	
 } // class ShaderConstants

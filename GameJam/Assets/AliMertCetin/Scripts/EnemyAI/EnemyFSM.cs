@@ -3,6 +3,7 @@ using System.Buffers;
 using AliMertCetin.Scripts.EnemyAI.States;
 using TheGame.FSM;
 using UnityEngine;
+using UnityEngine.AI;
 using XIV.Core.Extensions;
 using XIV.Packages.ScriptableObjects.Channels;
 
@@ -14,12 +15,25 @@ namespace AliMertCetin.Scripts.EnemyAI
         [SerializeField] public float rotationSpeed = 50f;
         [field: SerializeField] public Transform model { get; private set; }
         [field: SerializeField] public float groundCheckRadius { get; private set; } = 0.25f;
-        [field: SerializeField] public Transform playerTransform { get; private set; }
         [field: SerializeField] public float moveSpeed { get; private set; } = 20f;
         [field: SerializeField] public float attackCooldown { get; private set; } = 3f;
         [field: SerializeField] public float dealDamageAmount { get; private set; } = 5f;
         [field: SerializeField] public float attackRange { get; private set; } = 1.5f;
+        [field: SerializeField] public float interactableRange { get; private set; } = 1.5f;
+        [field: SerializeField] public float fieldOfViewAngle { get; private set; } = 5f;
+        [field: SerializeField] public float fieldOfViewDistance { get; private set; } = 8f;
         [field: SerializeField] public Vector3 gravity { get; private set; } = Physics.gravity;
+        
+        public GunUser gunUser { get; private set; }
+        public NavMeshAgent navMeshAgent { get; private set; }
+        public Transform playerTransform { get; private set; }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            gunUser = GetComponent<GunUser>();
+            navMeshAgent = GetComponent<NavMeshAgent>();
+        }
 
         void OnEnable()
         {
