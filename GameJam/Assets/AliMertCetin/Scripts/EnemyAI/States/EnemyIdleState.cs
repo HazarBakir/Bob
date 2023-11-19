@@ -11,6 +11,7 @@ namespace AliMertCetin.Scripts.EnemyAI.States
         
         protected override void CheckTransitions()
         {
+            if (stateMachine.playerTransform == false) return;
             if (Vector3.Distance(transform.position, stateMachine.playerTransform.position) > stateMachine.attackRange)
             {
                 ChangeStateFromChild(factory.GetState<EnemyMovementState>());

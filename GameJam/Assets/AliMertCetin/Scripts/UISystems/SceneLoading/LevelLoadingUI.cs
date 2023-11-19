@@ -33,7 +33,11 @@ namespace TheGame.UISystems.SceneLoading
             uiGameObject.transform.XIVTween()
                 .RectTransformMove(pos, Vector2.zero, 1f, EasingFunction.EaseOutExpo)
                 .UseUnscaledDeltaTime()
-                .OnComplete(() => isActive = true)
+                .OnComplete(() =>
+                {
+                    isActive = true;
+                    OnUIActivated();
+                })
                 .Start();
             
         }
@@ -49,6 +53,7 @@ namespace TheGame.UISystems.SceneLoading
                 {
                     isActive = false;
                     uiGameObject.SetActive(false);
+                    OnUIDeactivated();
                 })
                 .Start();
         }

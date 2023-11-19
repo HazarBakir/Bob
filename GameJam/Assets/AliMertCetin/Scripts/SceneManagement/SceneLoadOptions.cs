@@ -56,7 +56,7 @@ namespace TheGame.SceneManagement
                 sceneToLoad = sceneToLoad,
                 loadingScreenType = LoadingScreenType.LevelLoading,
                 sceneToUnload = sceneToUnload,
-                activateImmediately = false,
+                activateImmediately = true,
             };
         }
 

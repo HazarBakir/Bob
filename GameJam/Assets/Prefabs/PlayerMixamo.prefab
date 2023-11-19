@@ -985,8 +985,10 @@ GameObject:
   - component: {fileID: 3110827208625905114}
   - component: {fileID: 3110827208625905119}
   - component: {fileID: 536803722}
-  - component: {fileID: 536803718}
-  - component: {fileID: 536803723}
+  - component: {fileID: 389967917}
+  - component: {fileID: 389967910}
+  - component: {fileID: 389967915}
+  - component: {fileID: 389967916}
   m_Layer: 0
   m_Name: PlayerMixamo
   m_TagString: Untagged
@@ -1003,7 +1005,7 @@ Transform:
   m_GameObject: {fileID: 2876261999888814348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.06, y: 76.337, z: 225.727}
-  m_LocalScale: {x: 5.1652684, y: 5.1652684, z: 5.1652684}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2923878399739064920}
@@ -1067,7 +1069,23 @@ CapsuleCollider:
   m_Height: 1.7314032
   m_Direction: 1
   m_Center: {x: -0.07812813, y: 0.9049969, z: -0.0016782595}
---- !u!114 &536803718
+--- !u!208 &389967917
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2876261999888814348}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.62, y: 1, z: 0.62}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!114 &389967910
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1076,23 +1094,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2876261999888814348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a1e772953f2614092e18c3bb05fc33, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a908ec529557d445b61f12de5f5b185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
-  grounded: 0
+  showCurrentState: 0
+  textOffsetX: 0
+  textOffsetY: 0
+  animator: {fileID: 3110827208625905119}
   ground: {fileID: 3110827208980630620}
-  distance: 0.1
-  speed: 24
-  jumpHeight: 3
-  gravity: -80
-  currentPosition: {x: 0, y: 0, z: 0}
-  lastPosition: {x: 0, y: 0, z: 0}
-  currentSpeed: 0
-  mask:
+  radius: 0.1
+  speed: 16
+  runSpeed: 22
+  jumpHeight: 6
+  gravity: -250
+  groundMask:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &536803723
+  isGrounded: 0
+  yVelocity: 0
+  punchDamageAmount: 15
+--- !u!114 &389967915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1101,9 +1122,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2876261999888814348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec054db22ee58ae4393b82ec09923650, type: 3}
+  m_Script: {fileID: 11500000, guid: 025887701f344cfc92b792ed5f384ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health:
+    maxHealth: 100
+    currentHealth: 100
+--- !u!114 &389967916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2876261999888814348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10483d21bb8248a7b93cab371a3626b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLaodedChannel: {fileID: 11400000, guid: 92fee58379a8aaa46acf3fdba63a85fa, type: 2}
+  sceneLoadedChannel: {fileID: 11400000, guid: 802739b084db0c4408a77fad22d7c396, type: 2}
 --- !u!1 &2969212074792037915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1183,7 +1221,7 @@ GameObject:
   - component: {fileID: 45358764}
   m_Layer: 0
   m_Name: FPSCAMERA
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1196,7 +1234,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3110827207988043015}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 1.591, z: 0.247}
+  m_LocalPosition: {x: 0.01, y: 1.478, z: 0.238}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
