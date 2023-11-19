@@ -17,7 +17,7 @@ public class Portal : MonoBehaviour {
     // Private variables
     RenderTexture viewTexture;
     Camera portalCam;
-    Camera playerCam;
+   [SerializeField] Camera playerCam;
     Material firstRecursionMat;
     List<PortalTraveller> trackedTravellers;
     MeshFilter screenMeshFilter;
