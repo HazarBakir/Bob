@@ -6,7 +6,6 @@ namespace TheGame.UISystems.Components
 {
     public class SettingSlider : MonoBehaviour
     {
-        public TMP_Text txt_Label;
         public Slider slider;
         public TMP_Text txt_SliderPercent;
 
