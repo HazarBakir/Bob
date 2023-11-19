@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Berkay/Scenes/PortalTestArea.unity
-    guid: a27c573154570ad49b71ee4fe9cbfcb6
+    path: Assets/AliMertCetin/Scenes/Initialization.unity
+    guid: afb55aa9c7ea75f4a8ed0a32d16b2573
   - enabled: 1
-    path: Assets/Berkay/Scenes/PortalTestArea2.unity
-    guid: 85744d5b1e592b645b0ff45c6b5c3873
+    path: Assets/AliMertCetin/Scenes/PersistantManagers.unity
+    guid: 7eb5c839897e9104b865134a3e3aed81
+  - enabled: 1
+    path: Assets/AliMertCetin/Scenes/MainMenu.unity
+    guid: c8b84d903d739294cbbff377dc5d8ed1
+  - enabled: 1
+    path: Assets/Scenes/GameScene1.unity
+    guid: 8143fe5a53c56c84eac6401ff3ca0e39
   m_configObjects: {}

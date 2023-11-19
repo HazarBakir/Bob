@@ -20,13 +20,11 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM
         public float punchDamageAmount = 15f;
 
         float currentSpeed;
-        public PlayerInputReader inputReader { get; private set; }
         public CharacterController controller { get; private set; }
         
         protected override void Awake()
         {
             base.Awake();
-            inputReader = gameObject.AddComponent<PlayerInputReader>();
             controller = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
             controller.skinWidth = 0.1f;
