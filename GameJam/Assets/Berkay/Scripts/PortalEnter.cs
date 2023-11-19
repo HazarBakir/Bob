@@ -1,58 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using TheGame.SceneManagement;
 using TheGame.ScriptableObjects.Channels;
 using TheGame.ScriptableObjects.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PortalEnter : MonoBehaviour
+namespace Berkay.Scripts
 {
-
-    public float waitToLoad = 1f;
-    private bool shouldLoadAfterFade;
-
-    [SerializeField] SceneListSO sceneListSO;
-    [SerializeField] LevelDataChannelSO levelDataLoadedChannel;
-    [SerializeField] SceneLoadChannelSO sceneLoadChannel;
-    [SerializeField] float durationOffset = 2.5f;
-
-    LevelData levelData;
-    // Start is called before the first frame update
-    void Start()
+    public class PortalEnter : MonoBehaviour
     {
-        
-    }
+        [SerializeField] SceneListSO sceneListSO;
+        [SerializeField] SceneLoadChannelSO sceneLoadChannel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (shouldLoadAfterFade)
+        void OnTriggerEnter(Collider other)
         {
-            if (levelData != null && levelData.TryGetNextLevel(levelData.lastPlayedLevel, out var nextLevel))
+            if (other.CompareTag(TagConstants.Player))
             {
-                sceneLoadChannel.RaiseEvent(SceneLoadOptions.MenuLoad(sceneListSO.mainMenuSceneIndex));
+                SceneManager.LoadScene(0);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
-
-
         }
-                
-        
 
-        
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            shouldLoadAfterFade = true;
-           // UIFade.instance.FadeToBlack();
-        }
-    }
-    void OnLevelDataLoaded(LevelData obj)
-    {
-        levelData = obj;
-    }
-
 }

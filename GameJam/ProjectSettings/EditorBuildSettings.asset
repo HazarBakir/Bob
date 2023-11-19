@@ -20,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene3.unity
     guid: 022ed44dcbbda1b4e9c10e8287dea8d4
-  - enabled: 1
-    path: Assets/AliMertCetin/Scenes/MainMenu2.unity
-    guid: 03a57bbb7ff43ec4da69e0145c68c9c8
   m_configObjects: {}

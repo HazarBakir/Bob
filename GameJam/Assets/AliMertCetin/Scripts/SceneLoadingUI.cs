@@ -62,7 +62,7 @@ namespace TheGame.UISystems.SceneLoading
 
         void OnLoadingDisplayClosed(LoadingUIBase obj)
         {
-            currentLoadingDisplay.onUIClosed -= OnLoadingDisplayClosed;
+            if (currentLoadingDisplay != null) currentLoadingDisplay.onUIClosed -= OnLoadingDisplayClosed;
             uiGameObject.SetActive(false);
             isActive = false;
             currentLoadingDisplay = null;
