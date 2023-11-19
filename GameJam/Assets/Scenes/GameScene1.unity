@@ -945,7 +945,7 @@ VideoPlayer:
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
-  - 1
+  - 0.039
   m_Url: 
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
@@ -1198,6 +1198,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227900232}
   m_CullTransparentMesh: 1
+--- !u!1 &1413323079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413323081}
+  - component: {fileID: 1413323080}
+  m_Layer: 0
+  m_Name: NextSceneLoader (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1413323080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413323079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a0be385db6f2545a9f77c2e716535c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 1569040374}
+  sceneListSO: {fileID: 11400000, guid: 47f81a41a176de549949f575543ffac2, type: 2}
+  levelDataLoadedChannel: {fileID: 11400000, guid: 915666945322a1b4996dab01009f739d, type: 2}
+  sceneLoadChannel: {fileID: 11400000, guid: a1aef3776d7a70c42ae4e5dea088db5e, type: 2}
+  durationOffset: -0.2
+--- !u!4 &1413323081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413323079}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1513358675
 GameObject:
   m_ObjectHideFlags: 0

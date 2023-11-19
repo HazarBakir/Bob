@@ -37,10 +37,10 @@ public class FPSController : PortalTraveller {
     bool disabled;
 
     void Start () {
-        if (lockCursor) {
+      
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-        }
+        
 
         controller = GetComponent<CharacterController> ();
 

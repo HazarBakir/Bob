@@ -15,12 +15,12 @@ EditorBuildSettings:
     path: Assets/AliMertCetin/Scenes/MainMenu.unity
     guid: c8b84d903d739294cbbff377dc5d8ed1
   - enabled: 1
-    path: Assets/AliMertCetin/Scenes/GameScene1_AliTest.unity
-    guid: 23499ca8754273242a7d7ba65e9cb07a
-  - enabled: 1
-    path: Assets/AliMertCetin/Scenes/GameScene2_Ali.unity
-    guid: e1eda5d7fcc02414eae47d84c1633dff
+    path: Assets/Scenes/GameScene1.unity
+    guid: 8143fe5a53c56c84eac6401ff3ca0e39
   - enabled: 1
     path: Assets/Scenes/GameScene3.unity
     guid: 022ed44dcbbda1b4e9c10e8287dea8d4
+  - enabled: 1
+    path: Assets/AliMertCetin/Scenes/MainMenu2.unity
+    guid: 03a57bbb7ff43ec4da69e0145c68c9c8
   m_configObjects: {}
