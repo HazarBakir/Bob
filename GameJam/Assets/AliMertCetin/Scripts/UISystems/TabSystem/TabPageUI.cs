@@ -58,6 +58,7 @@ namespace TheGame.UISystems.TabSystem
                 .RectTransformMove(Vector2.zero, outOfScreenPos, 0.5f, EasingFunction.EaseOutExpo)
                 .OnComplete(() =>
                 {
+                    if (uiGameObject == false) return;
                     uiGameObject.SetActive(false);
                     isActive = false;
                     OnUIDeactivated();
