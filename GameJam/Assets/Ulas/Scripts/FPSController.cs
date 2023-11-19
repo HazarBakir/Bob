@@ -13,6 +13,8 @@ public class FPSController : PortalTraveller {
     public bool lockCursor;
     public float mouseSensitivity = 10;
     public Vector2 pitchMinMax = new Vector2 (-40, 85);
+    public Vector2 yawMinMax = new Vector2 (-40, 85);
+
     public float rotationSmoothTime = 0.1f;
 
     CharacterController controller;
@@ -42,7 +44,7 @@ public class FPSController : PortalTraveller {
 
         controller = GetComponent<CharacterController> ();
 
-        yaw = transform.eulerAngles.y;
+        yaw = 0;
         pitch = cam.transform.localEulerAngles.x;
         smoothYaw = yaw;
         smoothPitch = pitch;
@@ -104,11 +106,11 @@ public class FPSController : PortalTraveller {
         yaw += mX * mouseSensitivity;
         pitch -= mY * mouseSensitivity;
         pitch = Mathf.Clamp (pitch, pitchMinMax.x, pitchMinMax.y);
+        yaw = Mathf.Clamp (yaw, yawMinMax.x, yawMinMax.y);
         smoothPitch = Mathf.SmoothDampAngle (smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
         smoothYaw = Mathf.SmoothDampAngle (smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);
 
-        transform.eulerAngles = Vector3.up * smoothYaw;
-        cam.transform.localEulerAngles = Vector3.right * smoothPitch;
+        cam.transform.localEulerAngles = Vector3.right * smoothPitch+Vector3.up * smoothYaw;
 
     }
 

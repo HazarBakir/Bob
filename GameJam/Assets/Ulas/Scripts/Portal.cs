@@ -21,6 +21,7 @@ public class Portal : MonoBehaviour {
     Material firstRecursionMat;
     List<PortalTraveller> trackedTravellers;
     MeshFilter screenMeshFilter;
+    [SerializeField] private float screenThickness;
 
     void Awake () {
         playerCam = Camera.main;
@@ -135,7 +136,7 @@ public class Portal : MonoBehaviour {
         // Would be great if this could be fixed more elegantly, but this is the best I can figure out for now
         const float hideDst = -1000;
         const float showDst = 1000;
-        float screenThickness = linkedPortal.ProtectScreenFromClipping (portalCam.transform.position);
+        screenThickness = linkedPortal.ProtectScreenFromClipping (portalCam.transform.position);
 
         foreach (var traveller in trackedTravellers) {
             if (SameSideOfPortal (traveller.transform.position, portalCamPos)) {
