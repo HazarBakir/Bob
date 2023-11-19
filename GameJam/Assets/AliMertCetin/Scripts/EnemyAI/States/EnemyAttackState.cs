@@ -1,4 +1,5 @@
-﻿using TheGame.FSM;
+﻿using AliMertCetin.Scripts.PlayerSystems;
+using TheGame.FSM;
 using UnityEngine;
 using XIV.Core.Utils;
 using XIV.DesignPatterns.Common.HealthSystem;
@@ -7,9 +8,7 @@ namespace AliMertCetin.Scripts.EnemyAI.States
 {
     public class EnemyAttackState : State<EnemyFSM, EnemyStateFactory>
     {
-        IDamageable damageablePlayer;
-        Timer cooldownTimer;
-        const float ERROR = 0.25f;
+        IDamageable damageable;
         
         public EnemyAttackState(EnemyFSM stateMachine, EnemyStateFactory stateFactory) : base(stateMachine, stateFactory)
         {
@@ -17,26 +16,36 @@ namespace AliMertCetin.Scripts.EnemyAI.States
 
         protected override void OnStateEnter(State comingFrom)
         {
-            stateMachine.navMeshAgent.enabled = false;
-            damageablePlayer = stateMachine.playerTransform.GetComponent<IDamageable>();
-            cooldownTimer = new Timer(stateMachine.attackCooldown);
         }
 
         protected override void OnStateUpdate()
         {
-            if (cooldownTimer.Update(Time.deltaTime) == false) return;
-            cooldownTimer.Restart();
-            damageablePlayer.ReceiveDamage(stateMachine.dealDamageAmount);
+            if (damageable == default && stateMachine.playerTransform)
+            {
+                damageable = stateMachine.playerTransform.GetComponent<IDamageable>();
+            }
+            var playerTransformPosition = stateMachine.playerTransform.position;
+            var distance = Vector3.Distance(transform.position, playerTransformPosition);
+            if (distance < stateMachine.attackRange == false) return;
+
+            var dirToPlayer = (playerTransformPosition - transform.position);
+            var dot = Vector3.Dot(transform.forward, dirToPlayer);
+            if (dot < 0.9f)
+            {
+                var angle = Vector3.SignedAngle(transform.forward, dirToPlayer, Vector3.up);
+                var rot = Quaternion.RotateTowards(transform.rotation, Quaternion.AngleAxis(angle, Vector3.up), 50f * Time.deltaTime);
+                transform.rotation *= rot;
+            }
+            
+            damageable.ReceiveDamage(stateMachine.dealDamageAmount);
         }
 
         protected override void CheckTransitions()
         {
-            var pos = transform.position;
-            var playerPos = stateMachine.playerTransform.position;
-            var distance = Vector3.Distance(playerPos, pos);
-            if (distance > stateMachine.attackRange + ERROR)
+            var distance = Vector3.Distance(transform.position, stateMachine.playerTransform.position);
+            if (distance < stateMachine.attackRange)
             {
-                ChangeStateFromChild(factory.GetState<EnemyMoveState>());
+                ChangeStateFromChild(factory.GetState<EnemyWaitAttackCooldownState>());
                 return;
             }
         }

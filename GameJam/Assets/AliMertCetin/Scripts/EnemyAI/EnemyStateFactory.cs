@@ -8,10 +8,10 @@ namespace AliMertCetin.Scripts.EnemyAI
         public EnemyStateFactory(EnemyFSM stateMachine) : base(stateMachine)
         {
             AddState(new EnemyGroundedState(stateMachine, this)); // parent state
-            AddState(new EnemyMoveState(stateMachine, this)); // child state
+            AddState(new EnemyIdleState(stateMachine, this)); // child state
+            AddState(new EnemyMovementState(stateMachine, this)); // child state
             AddState(new EnemyAttackState(stateMachine, this)); // child state
-            AddState(new EnemySearchGunState(stateMachine, this)); // child state
-            AddState(new EnemyWanderState(stateMachine, this)); // child state
+            AddState(new EnemyWaitAttackCooldownState(stateMachine, this)); // child state
             AddState(new EnemyFallingState(stateMachine, this)); // parent state
         }
     }

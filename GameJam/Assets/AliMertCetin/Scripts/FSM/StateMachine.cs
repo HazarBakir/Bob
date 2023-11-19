@@ -12,7 +12,7 @@ namespace TheGame.FSM
         protected virtual void FixedUpdate() => currentState.FixedUpdateState();
         protected virtual void Update() => currentState.UpdateState();
         protected virtual void LateUpdate() => currentState.LateUpdateState();
-        protected void OnDestroy() => currentState.ExitState();
+        protected virtual void OnDestroy() => currentState.ExitState();
 
         void InitializeStateMachine(State initialState)
         {

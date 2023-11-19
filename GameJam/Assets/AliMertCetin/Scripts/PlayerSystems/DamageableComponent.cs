@@ -8,8 +8,6 @@ namespace AliMertCetin.Scripts.PlayerSystems
     {
         [SerializeField] Health health;
 
-        void Awake() => health.Initialize();
-
         IDisposable IObservable<HealthChange>.Subscribe(IObserver<HealthChange> observer)
         {
             return health.Subscribe(observer);

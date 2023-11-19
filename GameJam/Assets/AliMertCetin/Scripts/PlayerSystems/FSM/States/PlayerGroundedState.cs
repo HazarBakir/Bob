@@ -25,6 +25,7 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
         protected override void InitializeChildStates()
         {
             AddChildState(factory.GetState<PlayerIdleState>());
+            AddChildState(factory.GetState<PlayerAttackState>());
         }
 
         protected override void CheckTransitions()

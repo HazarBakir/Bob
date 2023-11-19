@@ -17,7 +17,7 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
                 return;
             }
 
-            if (stateMachine.inputReader.IsJumpPressed)
+            if (stateMachine.inputReader.isJumpPressed)
             {
                 ChangeStateFromChild(factory.GetState<PlayerJumpState>());
                 return;
