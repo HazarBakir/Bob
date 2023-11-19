@@ -71,15 +71,15 @@ namespace TheGame.UISystems.SceneLoading
 
         public override void Hide()
         {
-            if (currentLoadingDisplay == null)
+            if (currentLoadingDisplay != null)
             {
-                uiGameObject.SetActive(false);
-                isActive = false;
-                OnUIDeactivated();
+                currentLoadingDisplay.Hide();
                 return;
             }
 
-            currentLoadingDisplay.Hide();
+            uiGameObject.SetActive(false);
+            isActive = false;
+            OnUIDeactivated();
         }
 
         protected override void OnUIDeactivated()
