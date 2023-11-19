@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -8,7 +9,6 @@ public class PlayerMove : MonoBehaviour
 {
     CharacterController controller;
     public Vector3 velocity;
-    public bool grounded;
 
     public Transform ground;
     public float distance = 0.3f;
@@ -42,14 +42,14 @@ public class PlayerMove : MonoBehaviour
         // Calculate player's speed using the distance travelled during this frame
         controller.Move(newPosition * speed * Time.deltaTime);
         currentPosition = transform.position;
-        currentSpeed = grounded ? Vector3.Distance(lastPosition, currentPosition) / Time.deltaTime : Mathf.Abs((currentPosition - lastPosition).y / Time.deltaTime);
+        currentSpeed = CheckGrounded() ? Vector3.Distance(lastPosition, currentPosition) / Time.deltaTime : Mathf.Abs((currentPosition - lastPosition).y / Time.deltaTime);
 
         // Store the player's current position before moving
         lastPosition = transform.position;
         #endregion
 
         #region Jump
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetKeyDown(KeyCode.Space) &&CheckGrounded())
         {
             velocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
 
@@ -57,16 +57,23 @@ public class PlayerMove : MonoBehaviour
         #endregion
 
         #region Gravity
+        
 
-        grounded = Physics.CheckSphere(ground.position, distance, mask);
-
-        if (grounded && velocity.y < 0)
+        if (CheckGrounded() && velocity.y < 0)
         {
             velocity.y = 0f;
         }
 
-        velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
         #endregion
+        Debug.DrawRay(transform.position, Vector3.down,  Color.red);
     }
+
+   private bool CheckGrounded()
+    {
+        Debug.Log(Physics.Raycast(transform.position, Vector3.down, 2f));
+        return Physics.Raycast(transform.position, Vector3.down, 2f);
+
+    }
+
 }

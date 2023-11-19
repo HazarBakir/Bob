@@ -2,13 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Grass_01
-  m_Shader: {fileID: 4800000, guid: 56529fbf54eb34949964bb51e51f6e04, type: 3}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
+  m_Shader: {fileID: 4800000, guid: adce0b63bca75a84e9f786201b7d7b0b, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,6 +21,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 53a901cbec289e043a6df51f027ac80b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseColorMap:
         m_Texture: {fileID: 2800000, guid: 53a901cbec289e043a6df51f027ac80b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -48,6 +54,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 53a901cbec289e043a6df51f027ac80b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskMap:
+        m_Texture: {fileID: 2800000, guid: 9154932634b3e8e49a686eee9684a98b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -90,25 +100,58 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
+    - _AORemapMax: 1
+    - _AORemapMin: 0
+    - _AlphaCutoff: 0.5
+    - _AlphaDrag: 0
     - _BumpScale: 1
+    - _ColorNoiseSpread: 2
+    - _CullFarDistance: 20
+    - _CullFarStart: 60
     - _Cutoff: 0.5
+    - _DISTANCEBLEND: 0
     - _DetailNormalMapScale: 1
     - _DistortionBlend: 0.2
     - _DistortionPower: 1
+    - _Drag: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _HeightDrag: 0
+    - _InitialBend: 0
+    - _InvertBackfaceNormal: 0
     - _Metallic: 0
     - _Mode: 3
     - _NormalScale: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _ShiverDirectionality: 0
+    - _ShiverDrag: 0
+    - _SmoothnessRemapMax: 1
+    - _SmoothnessRemapMin: 0
     - _SmoothnessTextureChannel: 0
+    - _Specular: 0.3
     - _SpecularHighlights: 1
     - _Speed1: 0.5
     - _SrcBlend: 1
+    - _Stiffness: 1
     - _TransAmbient: 0.2
     - _TransDirect: 1
     - _TransNormalDistortion: 0.1
@@ -116,9 +159,18 @@ Material:
     - _TransShadow: 0.9
     - _Translucency: 1
     - _UVSec: 0
+    - _WINDCOLORMIX: 0
+    - _WindColorMix: 0
+    - _WindColorThreshold: 1
     - _ZWrite: 0
     - __dirty: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Direction: {r: 0, g: 1, b: 0.006896496, a: 0}
+    - _DryColor: {r: 0.8196079, g: 0.8196079, b: 0.8196079, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HealthyColor: {r: 1, g: 1, b: 1, a: 0}
+    - _NewNormal: {r: 0, g: 0, b: 0, a: 0}
+    - _Tiling_and_Offset: {r: 1, g: 1, b: 0, a: 0}
+    - _WindColorInfluence: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
