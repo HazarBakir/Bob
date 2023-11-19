@@ -1,5 +1,6 @@
 using AliMertCetin.Scripts.PlayerSystems.FSM.States;
 using TheGame.FSM;
+using TheGame.UISystems;
 using UnityEngine;
 
 namespace AliMertCetin.Scripts.PlayerSystems.FSM
@@ -28,6 +29,7 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM
             controller = GetComponent<CharacterController>();
             animator = GetComponent<Animator>();
             controller.skinWidth = 0.1f;
+            GameInput.Enable();
         }
 
         protected override State GetInitialState()

@@ -34,7 +34,7 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
 
         protected override void CheckTransitions()
         {
-            if (movement.y < 0f)
+            if (movement.y < Mathf.Epsilon)
             {
                 ChangeStateFromRoot(factory.GetState<PlayerFallState>());
                 return;
