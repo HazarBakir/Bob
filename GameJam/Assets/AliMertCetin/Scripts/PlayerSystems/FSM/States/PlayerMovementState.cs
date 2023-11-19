@@ -32,6 +32,8 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
             Vector3 direction = (transform.right * inputNormalized.x + transform.forward * inputNormalized.z).normalized;
             var inputMovement = direction * (speed * Time.deltaTime);
             stateMachine.controller.Move(inputMovement);
+
+            inputNormalized = Vector3.zero;
         }
 
         protected override void OnStateExit()

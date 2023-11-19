@@ -166,12 +166,12 @@ namespace TheGame.UISystems
 
         public static bool IsPressedThisFrame(KeyCode key)
         {
-            return Input.GetKeyDown(key);
+            return Input.GetKeyDown(key) || Input.GetKeyUp(key);
         }
 
         public static bool IsPressing(KeyCode key)
         {
-            return Input.GetKey(key);
+            return Input.GetKey(key) || Input.GetKeyUp(key);
         }
     }
 }
