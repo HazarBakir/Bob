@@ -2190,6 +2190,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -53.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1558681846, guid: cad751e5883a2ed429797f13290e0bdb, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 209528940131127191, guid: cad751e5883a2ed429797f13290e0bdb, type: 3}
       propertyPath: m_Name
       value: room with materials
