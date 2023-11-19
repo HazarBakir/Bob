@@ -3232,6 +3232,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3110827207988043014, guid: 3a2d86606b79e2147904ab13f80c6f60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.478
+      objectReference: {fileID: 0}
+    - target: {fileID: 3110827207988043014, guid: 3a2d86606b79e2147904ab13f80c6f60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.238
+      objectReference: {fileID: 0}
     - target: {fileID: 3110827207988043015, guid: 3a2d86606b79e2147904ab13f80c6f60, type: 3}
       propertyPath: m_TagString
       value: MainCamera
