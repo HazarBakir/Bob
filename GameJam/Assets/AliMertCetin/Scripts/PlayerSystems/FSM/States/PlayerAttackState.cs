@@ -1,6 +1,6 @@
 ﻿using System.Buffers;
-using AliMertCetin.Scripts.InteractionSystem;
 using TheGame.FSM;
+using TheGame.UISystems;
 using UnityEngine;
 using XIV.DesignPatterns.Common.HealthSystem;
 
@@ -8,13 +8,23 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
 {
     public class PlayerAttackState : State<PlayerFSM, PlayerStateFactory>
     {
+        bool attackPressed;
+        
         public PlayerAttackState(PlayerFSM stateMachine, PlayerStateFactory stateFactory) : base(stateMachine, stateFactory)
         {
         }
 
+        protected override void OnStateEnter(State comingFrom)
+        {
+            attackPressed = false;
+            var attackInput = GameInput.Get<GameInput.PlayerAttack>();
+            attackInput.Enable();
+            attackInput.onAttackPressed += OnAttackPressed;
+        }
+
         protected override void OnStateUpdate()
         {
-            if (stateMachine.inputReader.isAttackPressed == false) return;
+            if (attackPressed == false) return;
             
             var buffer = ArrayPool<Collider>.Shared.Rent(4);
             int hitCount = Physics.OverlapSphereNonAlloc(transform.position + transform.forward, 0.5f, buffer, 1 << PhysicsConstants.EnemyLayer);
@@ -31,9 +41,21 @@ namespace AliMertCetin.Scripts.PlayerSystems.FSM.States
             ArrayPool<Collider>.Shared.Return(buffer);
         }
 
+        protected override void OnStateExit()
+        {
+            var attackInput = GameInput.Get<GameInput.PlayerAttack>();
+            attackInput.Disable();
+            attackInput.onAttackPressed -= OnAttackPressed;
+        }
+
+        void OnAttackPressed()
+        {
+            attackPressed = true;
+        }
+
         protected override void CheckTransitions()
         {
-            if (stateMachine.inputReader.isAttackPressed)
+            if (attackPressed)
             {
                 ChangeStateFromChild(factory.GetState<PlayerWaitAttackCooldownState>());
                 return;
