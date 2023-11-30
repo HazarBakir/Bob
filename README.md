@@ -1,68 +1,65 @@
-# MagaraJamGame
+# Bob
 
-1.	OYUNA GENEL BAKIŞ
+## Overview
 
-1.1	Oyunun Konsepti
+### Concept
 
-Mağara Game Jam 23’te tema “gizemli makine” olarak açıklandı. Oyunumuz nereden geldiği bilinmeyen gizemli bir objenin televizyon izlemekte olan karakterimizin evine düşmesiyle başlar. Karakterimiz obje ile her temasında farklı bir evrene ışınlanmaktadır ve her bölüm platformlardan geçerek ya da gerekli bulmacaları çözerek, objeye ulaşıp kendi dünyasına dönmeye çalışmaktadır.
+In Magara Game Jam 23, the theme "mysterious machine" was revealed. Our game begins with an unknown object falling into the home of our character, Bob, who is watching TV. With each contact with the object, Bob is teleported to a different universe. In each level, he navigates platforms or solves puzzles to reach the object and return to his own world.
 
-1.2	Oyunun Türü
+### Genre
 
-Oyun platform/puzzle türündedir.
+The game is a platform/puzzle.
 
-2.	OYUNUN OYNANIŞI VE MEKANİKLERİ 
+## Gameplay and Mechanics
 
-2.1 Oynanış
+### Controls
 
-Oyunda ok tuşları ya da “w,a,s,d” tuşları ile hareket edilmekte, “space” tuşu ile zıplamakta ve “e” tuşu ile etkileşime geçilmektedir. 
+Use arrow keys or "w, a, s, d" to move, "space" to jump, and "e" to interact.
 
-2.2 Mekanikler
+### Mechanics
 
-Oyundaki mekanikler bölümden bölüme değişmektedir. Karar verildikçe burası düzenlenecek.
-Ama makineyle ilgili şöyle bir mekanik var aklımda: Her bölüm obje üzerinde düğmelere basma sekansları olacak. Ve her bölüm sonunda düğmelerden biri belirginleşecek. Bob bunları not defterine kaydedecek. En son sıra tamamen belli olduğu zaman doğru kombinasyonu tıkladığı zaman kendi dünyasına gidebilecek.
+Mechanics vary from level to level. One idea is a button-press sequence on the object in each level, with one button becoming clear at the end. Bob notes these in a notepad. When the correct combination is clicked, he can return to his world.
 
-3.	HİKAYE VE KARAKTERLER
+## Story and Characters
 
-3.1 Hikaye
+### Story
 
-Evinde sakin bir gün geçiren ana karakterimiz Bob, evinin camını kırıp içeri giren gizemli bir objeye dokunduktan sonra kendisini farklı bir yerde bulur. Bu obje, kullanıcısının paralel evrenler arasında seyahat edebilmesini sağlayan üstün bir makinedir! Bob’un tek isteği televizyonda başlamak üzere olan favori dizisini izlemek olduğu için bu makinenin gizemini çözmeli ve bir an önce kendi düyasına dönmelidir.
-3.2 Karakterler
+Bob, having a peaceful day at home, touches a mysterious object that entered through his broken window, finding himself in a different place. This object is an advanced machine allowing travel between parallel universes! Bob must solve the mystery of the machine and return to his world to watch his favorite show starting on TV.
 
-Bob: 
+### Characters
 
-Oyunumuzun ana karakteridir. Tek isteği başlamak üzere olan favori dizisini izlemekken, kendisini talihsiz bir şekilde paralel evrenler arası seyahat ederken bulur.
+- **Bob**: The main character who, while wanting to watch his favorite show, ends up traveling between parallel universes.
+  
+- **Prometheus**: The alien owner of the mysterious machine, accidentally entering a human's home through an "alternate world alternator" after a crash.
 
-Prometheus:
+## Levels
 
-Gizemli makinenin sahibi uzaylı. Yaşadığı kaza sonucu “alternatif dünya alternatörü” bir dünyalının evinden içeri girmiştir. 
+### Entry
 
-4.	BÖLÜMLER
+Bob's home. The level ends after interacting with the mysterious machine.
 
-4.1 Giriş
+### 3D Platform Section
 
-Bob’un evi. Gizemli makineyle etkileşime girdikten sonra bölüm biter.
+Includes 3D platforming and puzzles.
 
-4.2 Platform Bölümü(3D)
+### 2D Platform Section
 
-3D platform bölümü ve puzzlelar
+Features 2D platforming and puzzles.
 
-4.2 Platform Bölümü(2D)
+### Runner Style Section
 
-2D platform bölümü ve puzzlelar
+Possibly a section like Subway Surfers, adding an absurd and parallel world feel.
 
-4.3 Runner Tarzı falan mesela
+### Inside the TV Section
 
-Subway surfers gibi bir bölüm olabilir. Janra değişimiyle de absürt ve paralel dünya hissi artabilir belki. Bunları düşünürüz hep. Bunlar hep fikir.
+Bob enters the universe of the show he wants to watch, breaking the fourth wall to see himself watching TV.
 
-4.4 Televizyonun İçinde Olma Bölümü
+### It Was All a Dream Section
 
-Bob izlemek istediği dizinin evrenine gidip 4. duvarı yıkarak  televizyon izleyen kendisini görebilir.
-4.5 Her Şey Bir Rüyaymış Bölümü
+Bob wakes up in bed, thinking everything was a dream, but the machine is on the table.
 
-Bob yatağında uyanıp her şeyi rüya sanar ama makine masasının üzerinde duruyordur.
+### Finale
 
-4.6 Bitiş
+Bob finally returns to his world with the machine in hand. The door knocks, and alien Prometheus, scolding him, takes the machine. The game ends.
 
-Bob bu sefer gerçekten elinde makineyle kendi dünyasına gelmiştir ve favori dizisi başlamak üzeredir. Kapı çalar ve uzaylı Prometheus azarlayarak makineyi Bob’dan alır. Oyun biter.
-
-Şimdilik böyle lame lame bölümler düşündüm ama bunları tartışıp düzenleriz. Arttırırız azaltırız, değiştiririz.
+Feel free to discuss, modify, and enhance these preliminary levels.
